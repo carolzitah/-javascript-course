@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Curso JavaScript</title>
+    </head>
+
+    <body>
+        
+    </body>
+
+
+    <script>
+        // JavaScript
+
+        // VARIAVEIS E DADOS
+
+        var nome = "Carol"; // para String
+        var idade = 30; // inteiros
+        var peso = 63; // float - para valores decimais
+        var humano = true; // valores booleanos (ou seja, true or false)
+        var alunos = ['Carol', 'Jorge', 'Maria', 'André']; // Vetores ou Array (armezenar varias informações) 
+        // o vetor é um Array
+        // onde cada elemento possui um número no JS inicia no 0
+        // - 0 carol, 1 jorge, 2 maria, 3 André)
+        
+
+        
+        // Objetos - para variaveis que guardam mais de 1 valor, 
+        // todos os valores referentes aquele objeto ou item
+        // seriam as características de algo;
+
+        var aluno = {
+            nome: 'Carol', // podemos utilizar as variaveis ja criadas - nome: alunos[1] -
+                           // na função global do console irá aparece o aluno de posição 1 no vetor
+            idade: 30,
+            peso: 63,
+            humano: true,   
+        };
+        
+        // para buscar informações utilizar a função global:
+        // console.log(nome da var que quer mostrar);
+        // com essa função podemos escrever no deputador do navegador (inspecionar > aba console)
+
+        console.log(alunos); // para mostrar a var alunos
+        console.log(alunos[1]) // para mostrar a posição do array de um vetor colocar [] e a posição desejada
+        console.log(aluno.nome) // no caso de objeto deve-se colocar a variavel.propriedade 
+
+        // // OPERAÇÕES MATEMÁTICAS
+
+        var x = 10, y = 7; // as variaveis podem ser agrupadas em uma única linha.
+        
+        var result = x - y // pode ser usado qlq operação matemática (+, -, /, *,) etc.
+
+        console.log(result);
+
+        // é possível realizar outras operações em cima das variáveis já criadas:
+
+        x += 3 // essa operação é igual a x = x + 3 (ou seja no console daria 13)
+               // pode ser usado qlq outra operação matemática
+
+        console.log(x);
+
+        // // FUNÇÕES - funtion
+
+        function soma(numero1, numero2) { // pode receber qts parametros quiser, nao precisa definir tipo, 
+            var resultado = numero1 + numero2;
+
+            return resultado // não precisa informar o tipo de retorno da função soma
+        }
+
+        soma(1, 2)
+
+        console.log(resultado); // mostrando dessa forma, o resultado dará erro, (resultado indefinido)
+        // pois essa função mostra somente var dentro do escopo dela, nesse exemplo o var está em function
+
+        //para mostrar o resultado corretamente faça uma var fora da function soma
+
+        var resultado = soma(1, 2)
+
+        console.log(resultado);
+
+        // // CONDICIONAIS - if (else) e switch ()
+
+        // UTILIZANDO if (else)
+
+        function retornaSexo(sexo) {
+            // M, F
+            // Masculino, Feminino
+
+            // para verificar igualdade deve-se colocar == no if, (verifica se os valores são iguais)
+            // se colocar somente = ele estará definindo a propriedade como 'M' e não buscando a igualdade
+            // há tb === (verifica além do valor das variaveis, verifica se o tipo é igual)
+
+            if (sexo === 'M') 
+            {
+                return 'Masculino';
+            } else if (sexo === 'F') {
+                return 'Feminino';
+            } else {
+                return 'Outro';
+            }
+        }
+
+        var resultado = retornaSexo('F')
+        console.log(resultado);
+        
+        // UTILIZANDO Switch Case
+
+        function retornaSexo(sexo) {
+            switch (sexo) {
+                case 'M':   
+                    return 'Masculino';
+                case 'F':   
+                    return 'Feminino';
+                default:
+                    return 'Outro';
+            }
+        }
+
+        // mostrar se o número é par ou impar
+
+        function imparPar(numero) {
+            if (numero % 2 == 0)
+                return 'Par';
+            else
+                return 'Impar'
+        }
+
+        resultado = imparPar('10')
+        console.log(resultado);
+
+
+        // OPERADORES LÓGICOS - AND &&, OR ||, NOT ! (desigualdade)
+
+         var sexo = 'M', idade = 26
+
+        
+        // para verificar se é do sexo masculino e maior de 18 anos
+        if (sexo === 'M' && idade >= 18) {
+            console.log('OK')
+        }
+
+        if (sexo === 'M' || idade >= 18) {
+            console.log('OK')
+        }
+
+        if (sexo === 'F' !== idade >= 18) {
+            console.log('OK')
+        }
+
+        // Armazenar condições nas variáveis
+
+        var sexo = 'F';
+
+        var masculino; //apenas para startar a variavel, para não precisar escrever "var" em baixo
+
+        if (sexo === 'M') {
+            masculino = true
+        } else {
+            masculino = false
+        }
+
+        console.log(masculino)
+
+        // armazenando 
+
+        var sexo = 'M';
+
+        var masculino = (sexo === 'M'); // condição no JS sempre retorno true or false
+                                        // por ser condição não precisa de ()
+
+        console.log(masculino)
+
+        // CONDIÇÃO TERNÁRIA
+
+        // A condição ternária se aplica quando:
+        // Só há 2 verificações dentro do if, ou seja if e else.
+        // se ele está validando uma condição ou se não está.
+
+        // forma normal:
+
+        // var sexo = 'M';
+        function sexoo(masfem) {
+            if (masfem === 'M') {
+                return 'Masculino';
+            } else {
+                return 'Feminino';
+            }
+        }
+
+        var res = sexoo('F')
+        console.log(res)
+        
+
+        // podemos reduzir o código:
+
+        var retorno = (sexo === 'F') ? 'Masculino' : 'Feminino'
+
+        console.log(retorno)
+
+        // ESTRUTURA DE REPETIÇÃO (LAÇOS DE REPETIÇÃO)
+
+        // for 
+
+        for (var i = 0; i <= 100; i++) {
+            console.log(i)
+        }
+        // valor iniciar = 0
+        // enquanto i for maior ou igual a 100
+        // irá somar mais 1
+        
+        // while 
+
+        var j = 0
+        while (j <= 100) {
+            console.log(j)
+
+            j++;
+        }
+
+        // quando usar far ou while??
+
+        // deve-se usar far sempre que souber o tamanho do intervalo.
+        // deve-se usar while quando não souber qts vezes o fluxo será executado
+
+        // exemplo:
+
+        var j = 366576834
+        while (j > 50) {
+            console.log(j)
+
+            j /= 5;
+        }
+
+        // INTERVALO E TIMEOUT
+
+        // intervalo -executa varias vezes dentro de 1 intervalo
+
+        // function exibeAlgo() {
+        //     console.log('Hello Word')
+        // }
+
+        // setInterval(exibeAlgo, 1000); // o tempo é contado em milisegundos
+        // para referenciar a função não colocar () após chamá-la.
+        // quando referencia função não é para executá-la, apenas passar um parâmetro para algo
+
+        // timeout - executa apenas uma vez com o tempo de delay que for colocado antes de executar
+
+        function exibeAlgo() {
+            console.log('Hello')
+        }
+
+        setTimeout(exibeAlgo, 3000);
+
+        // EXERCÍCIOS - MOD 1
+
+        // 1º - Crie uma função que dado o objeto a seguir:
+
+        function retornaEndereco(endereco) {
+            return `O usuário mora em ${endereco.cidade} / ${endereco.uf}, no bairro ${endereco.bairro}, na rua ${endereco.rua} com nº ${endereco.numero}.`
+        }
+
+        var endereco = {
+                rua: "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "Centro",
+                cidade: "São Paulo",
+                uf: "SP"
+            };
+
+        
+
+        var rend = retornaEndereco(endereco);
+        console.log(rend)
+
+        // uma variável nunca pode ter o nome de palavras ou funções reservadas (return, if, switch, case etc...)
+        // função e variável nunca pode ter o mesmo nome
+        // em uma função é bom colocar verbo no imperativo
+
+        // 2º - Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:
+
+        // for
+        function exibePares(x, y) {
+            for (var i = x; i <= y; i++) {
+                if (i % 2 == 0) {
+                    console.log(i);
+                }
+            }
+            
+            
+        }
+
+        exibePares(17, 101);
+
+        //while
+        function exibePar(x, y) {
+            var i = x;
+            while (i <= y) {
+                if (i % 2 == 0) {
+                    console.log(i);
+                }
+
+                i++;
+            }
+            
+            
+        }
+
+        exibePar(13, 123);
+
+        // 3º - Escreva uma função que verifique se o vetor de habilidades passado possui a habilidade "Javascript"
+        // e retorna um booleano true/false caso exista ou não.
+
+        function temHabilidade(skills) {
+            if (skills.indexOf('Javascript') !== -1) { // 
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var skills = ['Javascript', 'ReactJS', 'React Native'];
+        console.log(temHabilidade(skills)); // true ou false
+       
+       // 4º - Escreva uma função que dado um total de anos de estudo
+       // retorna o quão experiente o usuário é:
+
+       function experiencia(anos) {
+            if (anos <= 1) {
+                return 'Iniciante';
+            } else if (anos > 1 && anos <= 3) {
+                return 'Intermediário';
+            } else if (anos > 3 && anos <= 6) {
+                return 'Avançado';
+            } else {
+                return 'Jedi Master';
+                
+            }
+
+
+        }
+        console.log(experiencia(4));
+        
+        // De 0-1 ano: Iniciante
+        // De 1-3 anos: Intermediário
+        // De 3-6 anos: Avançado
+        // De 7 acima: Jedi Master
+
+        // 5º - Dado o seguinte vetor de objetos:
+
+        var usuarios = [
+            {
+            nome: "Diego",
+            habilidades: ["Javascript", "ReactJS", "Redux"]
+            },
+            {
+            nome: "Gabriel",
+            habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+            }
+        ];
+        
+        // Escreva uma função que produza o seguinte resultado:
+        // O Diego possui as habilidades: Javascript, ReactJS, Redux
+        // O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
+
+        function retornaHabilidades(usuarios) {
+            for (u of usuarios) {
+                //console.log(`O ${u.nome} possui as habilidade: ${u.habilidades.join()}`);
+                for (h of u.habilidades) {
+                    console.log(h);
+                }
+            }
+
+            
+        }
+        retornaHabilidades(usuarios);
+
+
+    </script>
+</html>
